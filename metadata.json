@@ -1,0 +1,5 @@
+
+{
+  "name": "DocuMind RAG Chatbot",
+  "description": "A Retrieval-Augmented Generation (RAG) chatbot that answers questions based on the content of uploaded documents (PDF, DOCX, TXT). It uses a Gemini model to provide context-aware responses."
+}
