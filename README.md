@@ -1,20 +1,59 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# DocuMind RAG Chatbot
 
-# Run and deploy your AI Studio app
+An intelligent document assistant that uses Retrieval-Augmented Generation (RAG) to answer questions based on uploaded documents and URLs. Built with React, TypeScript, and powered by Google's Gemini AI.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/temp/1
+- 📄 Support for multiple document formats (PDF, DOCX, TXT)
+- 🔗 Extract content from URLs and YouTube videos
+- 💬 Interactive chat interface
+- 🤖 Context-aware responses using Gemini AI
+- 🎨 Modern, responsive UI with Tailwind CSS
 
-## Run Locally
+## Prerequisites
 
-**Prerequisites:**  Node.js
+- Node.js (v16 or higher)
+- A Gemini API key (get one at [ai.google.dev](https://ai.google.dev/))
 
+## Installation
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd documind-rag-chatbot
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up your environment variables:
+   - Copy `.env.local` and add your Gemini API key:
+   ```
+   GEMINI_API_KEY=your_api_key_here
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:5173`
+
+## Usage
+
+1. Upload one or more documents (PDF, DOCX, or TXT) or add URLs
+2. Wait for the processing to complete
+3. Ask questions about the content
+4. Get accurate, context-aware answers
+
+## Tech Stack
+
+- **Frontend**: React 19, TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **AI Model**: Google Gemini 2.5 Flash
+- **PDF Processing**: PDF.js
+
+## License

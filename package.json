@@ -1,8 +1,11 @@
 {
   "name": "documind-rag-chatbot",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "An intelligent RAG chatbot for document Q&A using Gemini AI",
+  "author": "Your Name",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

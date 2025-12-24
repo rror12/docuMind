@@ -13,9 +13,9 @@ export default function App(): React.ReactElement {
   const [isBotReplying, setIsBotReplying] = useState<boolean>(false);
 
   const initialMessage = useMemo((): Message => ({
-      id: 'initial-message',
-      text: 'Hello! I am DocuMind. Please upload your documents or add URLs, and I will answer any questions you have about their content.',
-      sender: 'bot',
+    id: 'initial-message',
+    text: 'Hello! I am DocuMind. Please upload your documents or add URLs, and I will answer any questions you have about their content.',
+    sender: 'bot',
   }), []);
 
   const handleProcessSources = useCallback(async (files: File[], urls: string[]) => {
@@ -39,7 +39,7 @@ export default function App(): React.ReactElement {
       } else if (urlCount > 0) {
         readyText = `I have finished processing ${urlCount} URL(s). What would you like to know?`;
       }
-      
+
       setMessages([
         {
           id: 'ready-message',
@@ -85,33 +85,33 @@ export default function App(): React.ReactElement {
       setIsBotReplying(false);
     }
   }, [documentContext, isBotReplying]);
-  
+
   const effectiveMessages = messages.length > 0 ? messages : [initialMessage];
 
   return (
     <div className="min-h-screen bg-stone-950 text-stone-200 font-sans flex flex-col items-center p-4 selection:bg-emerald-500/30">
-        <header className="w-full max-w-7xl mx-auto text-center py-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">
-                DocuMind RAG Chatbot
-            </h1>
-            <p className="text-stone-400 mt-2 text-lg">Your intelligent document assistant powered by Gemini</p>
-        </header>
-        <main className="w-full max-w-7xl mx-auto flex-grow grid grid-cols-1 lg:grid-cols-3 gap-8 p-4">
-            <aside className="lg:col-span-1 h-full">
-                <FileUpload 
-                    onProcess={handleProcessSources} 
-                    status={docStatus}
-                />
-            </aside>
-            <section className="lg:col-span-2 h-full flex flex-col bg-stone-900/50 border border-stone-800 rounded-2xl shadow-2xl shadow-black/20">
-                <ChatWindow
-                    messages={effectiveMessages}
-                    onSendMessage={handleSendMessage}
-                    isBotReplying={isBotReplying}
-                    isReady={docStatus === DocStatus.READY}
-                />
-            </section>
-        </main>
+      <header className="w-full max-w-7xl mx-auto text-center py-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">
+          DocuMind RAG Chatbot
+        </h1>
+        <p className="text-stone-400 mt-2 text-lg">Your intelligent document assistant</p>
+      </header>
+      <main className="w-full max-w-7xl mx-auto flex-grow grid grid-cols-1 lg:grid-cols-3 gap-8 p-4">
+        <aside className="lg:col-span-1 h-full">
+          <FileUpload
+            onProcess={handleProcessSources}
+            status={docStatus}
+          />
+        </aside>
+        <section className="lg:col-span-2 h-full flex flex-col bg-stone-900/50 border border-stone-800 rounded-2xl shadow-2xl shadow-black/20">
+          <ChatWindow
+            messages={effectiveMessages}
+            onSendMessage={handleSendMessage}
+            isBotReplying={isBotReplying}
+            isReady={docStatus === DocStatus.READY}
+          />
+        </section>
+      </main>
     </div>
   );
 }
